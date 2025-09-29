@@ -1,0 +1,72 @@
+*{
+    box-sizing: border-box;
+}
+
+ /* Basic reset */
+        :root {
+            --brand-1: #0b6b8a;
+            --brand-2: #ff7a59;
+            --muted: rgba(255, 255, 255, 0.9);
+            --card-bg: rgba(255, 255, 255, 0.06);
+            --glass: rgba(255, 255, 255, 0.04);
+            --max-width: 1200px;
+            --box-shadow: rgba(2, 6, 23, 0.06);
+            --bg-light: #f7f7f7;
+        }
+
+
+.form_container{
+    background-color: #f7f7f7;
+    margin: 40px 50px;
+    min-width: 700px;
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+}
+
+label{
+    display: block;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+label span{
+    color: rgb(255, 85, 85);
+}
+
+
+input, select, textarea{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    outline: none;
+}
+
+#visa-support option{
+   text-transform: capitalize;
+}
+
+.notice strong{
+    color: var(--text-color);
+}
+
+.notice p{
+    color: rgb(255, 85, 85);
+}
+
+.form_container .btn{
+    background: linear-gradient(90deg, var(--brand-2), #ffd07a);
+    color: #08101a;
+    font-size: 17px;
+    width: 20%;
+    align-self: center;
+}
+
+.form_container .btn:hover{
+    background-color: var(--secondary-color);
+}

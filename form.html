@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/form.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Ticket Purchase Form</title>
+</head>
+
+<body>
+    <!-- header section -->
+    <header class="site-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>International</h1><span>Festival</span>
+                </div>
+                <ul id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="./sponsor.html">Sponsor</a></li>
+                    <li><a href="./form.html">Apply</a></li>
+                    <li><a href="#visa-support" class="nav-link" data-target="visa-support">Visa Support</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <header class="hero" role="img">
+        <div class="overlay" aria-hidden="true"></div>
+
+        <!-- Slider Backgrounds -->
+        <div class="slider">
+            <div class="slide active"
+                style="background-image:url('https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?auto=format&fit=crop&w=1600&q=80');">
+            </div>
+            <div class="slide"
+                style="background-image:url('https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1600&q=80');">
+            </div>
+            <div class="slide"
+                style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');">
+            </div>
+        </div>
+
+        <div class="hero-inner">
+            <div>
+                <h1>International Tourism Festival 2026 – Ticket Purchase Form</h1>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="form_section">
+            <div class="form_container">
+                <div id="form_text">
+                    <h2>International Tourism Festival 2026 – Ticket Purchase Form </h2>
+                </div>
+
+                <form action="post">
+                    <!-- ticket purchase form -->
+                    <label for="name">fullname <span>*</span></label>
+                    <input type="text" id="fullname" name="fullname" required>
+
+                    <label for="email">email <span>*</span></label>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+
+                    <label for="nationality">nationality <span>*</span></label>
+                    <input type="text" id="nationality" name="nationality" required>
+
+                    <label for="country">country or residence <span>*</span></label>
+                    <input type="text" id="country" name="country" required>
+
+                    <label for="address">address <span>*</span></label>
+                    <textarea name="address" id="address" cols="30" rows="2" required></textarea>
+
+                    <label> do you need invitation/visa support letter?</label>
+                    <select name="visa-support" id="visa-support" required>
+                        <option value="" class="visa">--select--</option>
+                        <option value="yes">yes</option>
+                        <option value="no">no</option>
+                    </select>
+
+                    <label for="pass">Select Pass Type</label>
+                    <select name="pass" id="pass">
+                        <option value="">--select pass--</option>
+                        <option value="">One-Day Pass – $250 CAD</option>
+                        <option value="">Regular Pass (3 days, no accommodation) – $650 CAD</option>
+                        <option value="">International Regular Pass (3 days + accommodation + group tour) – $1500 CAD
+                        </option>
+                        <option value="">International Delegate Pass (3 days + accommodation + private tour + attraction
+                            passes) – $2500 CAD</option>
+                    </select>
+
+                    <label for="ticket">number of ticket</label>
+                    <input type="number" name="ticket" id="ticket">
+
+                    <label for="request">special requests(optional)</label>
+                    <textarea name="requests" id="requests" cols="30" rows="3"></textarea>
+
+                    <div class="notice">
+                        <p><strong>⚠️ Important Notice:</strong>All fees paid for the International Tourism Festival
+                            2026
+                            are non-refundable. Please review your selections carefully
+                            before submitting your payment.</p>
+                    </div>
+
+                    <input type="button" value="submit" class="btn">
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- footer section -->
+    <footer>
+        <div class="site-footer">
+            <div class="container footer-grid">
+                <div class="into">
+                    <div class="logo">
+                        <h2>International Tourism<span>Festival 2026</span></h2>
+                    </div>
+                    <p>
+                        The International Tourism Festival 2026 is a premier global platform connecting tourism boards,
+                        businesses, cultural
+                        organizations, and travelers.
+                    </p>
+                </div>
+
+                <div class="footer_links">
+                    <h2>quick link</h2>
+                    <div class="quick_link">
+                        <ul>
+                            <li><a href="#">home</a></li>
+                            <li><a href="#">apply</a></li>
+                            <li><a href="#">contact</a></li>
+                            <li><a href="#">about festival</a></li>
+                            <li><a href="#">visa support</a></li>
+                            <li><a href="#">FQA</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="contact" id="contact">
+                    <h2>Contact for Sponsorship Inquiries</h2>
+                    <p>For custom sponsorship opportunities or questions:</p>
+                    <p><a href="#">+1 647 291 4457</a></p>
+                    <p><a href="#">Email: info@globalleadershubs.com</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 international tourism festive. all right reserved</p>
+            </div>
+        </div>
+
+    </footer>
+</body>
+<script src="./assets/js/main.js"></script>
+
+</html>
