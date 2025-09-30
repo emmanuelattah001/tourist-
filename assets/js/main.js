@@ -1,27 +1,42 @@
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
-
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
-  menuToggle.classList.toggle("open"); // animate hamburger
-});
-
-// function for slider
-const slides = document.querySelectorAll(".slide");
+// === SLIDER ===
 let current = 0;
-
 function showSlide(index) {
+  const slides = document.querySelectorAll(".slide");
   slides.forEach((s, i) => {
     s.classList.toggle("active", i === index);
   });
 }
-
 function nextSlide() {
+  const slides = document.querySelectorAll(".slide");
+  if (slides.length === 0) return;
   current = (current + 1) % slides.length;
   showSlide(current);
 }
+setInterval(nextSlide, 4000);
 
-setInterval(nextSlide, 4000); // change every 4s
+// === LOAD NAV ===
+fetch("nav.html")
+  .then((res) => res.text())
+  .then((data) => {
+    document.getElementById("nav").innerHTML = data;
+
+    // reattach hamburger after nav loads
+    const toggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    if (toggle && navLinks) {
+      toggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+        toggle.classList.toggle("open");
+      });
+    }
+  });
+
+// === LOAD FOOTER ===
+fetch("footer.html")
+  .then((res) => res.text())
+  .then((data) => {
+    document.getElementById("footer").innerHTML = data;
+  });
 
 // Section toggle logic
 const nav_Links = document.querySelectorAll(".nav-link");
