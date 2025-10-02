@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px;
+            background: #ff7a59;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e3520;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                max-width: 600px;
+                margin: auto;
+                background: white;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            input,
+            select {
+                width: 90%;
+                padding: 10px;
+                margin-top: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Sponsor Registration Form</h2>
+        <form id="sponsorForm">
+            <!-- Full Name -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <!-- Company Name -->
+            <label for="company">Company Name:</label>
+            <input type="text" id="company" name="company" required>
+
+            <!-- Company Registration Number -->
+            <label for="regNo">Company Registration Number:</label>
+            <input type="text" id="regNo" name="regNo" required>
+
+            <!-- Sponsor Amount -->
+            <label for="amount">Sponsorship Amount (CAD):</label>
+            <input type="number" id="amount" name="amount" placeholder="Enter amount">
+
+            <!-- Exhibit Question -->
+            <label for="exhibit">Do you want to exhibit?</label>
+            <select id="exhibit" name="exhibit" required>
+                <option value="">-- Select --</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
+
+            <!-- Package Selection (hidden until 'Yes') -->
+            <div id="packageSection" class="hidden">
+                <label for="package">Select Package:</label>
+                <select id="package" name="package">
+                    <option value="Standard Booth - $2,000 CAD">Standard Booth - $2,000 CAD</option>
+                    <option value="Premium Booth - $3,500 CAD">Premium Booth - $3,500 CAD</option>
+                    <option value="VIP Activation Booth - $5,000 CAD">VIP Activation Booth - $5,000 CAD</option>
+                    <option value="Custom Sponsorship Package - From $7,500 CAD">Custom Sponsorship Package - From
+                        $7,500 CAD</option>
+                </select>
+            </div>
+
+            <!-- Number of Guests -->
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" min="0">
+
+            <!-- Upload Company Logo -->
+            <label for="logo">Upload Company Logo / Picture:</label>
+            <input type="file" id="logo" name="logo" accept="image/*">
+
+            <button type="submit">Submit Sponsorship</button>
+        </form>
+    </div>
+
+    <script>
+        const exhibitSelect = document.getElementById("exhibit");
+        const packageSection = document.getElementById("packageSection");
+
+        exhibitSelect.addEventListener("change", function () {
+            if (this.value === "Yes") {
+                packageSection.classList.remove("hidden");
+            } else {
+                packageSection.classList.add("hidden");
+            }
+        });
+
+        // Form submission
+        document.getElementById("sponsorForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Thank you for your sponsorship! Your details have been submitted. and invoice will be send to you shortly");
+            // Here you can handle form data and send to backend
+        });
+    </script>
+</body>
+
+</html>
