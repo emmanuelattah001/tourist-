@@ -2,6 +2,7 @@
         :root {
             --brand-1: #0b6b8a;
             --brand-2: #ff7a59;
+            --brand-3: #ff8e71;
             --muted: rgba(255, 255, 255, 0.9);
             --card-bg: rgba(255, 255, 255, 0.06);
             --glass: rgba(255, 255, 255, 0.04);
@@ -210,6 +211,11 @@
             color: #08101a,
         }
 
+        .btn-primary:hover {
+            background: linear-gradient(90deg, var(--brand-3), #ffdc9b);
+            color: #08101a,
+        }
+
         .btn-ghost {
             background: transparent;
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -261,6 +267,10 @@
             padding: 1rem;
             border-radius: 10px;
             text-align: center
+        }
+
+        .who-card i{
+            font-size: 50px;
         }
 
         .features {
@@ -315,10 +325,6 @@
             padding: 2rem;
             border-radius: 12px;
             text-align: center
-        }
-
-        .hidden {
-        display: none;
         }
 
 

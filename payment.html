@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - ITF 2026</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        .payment-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+
+        .payment-option {
+            margin: 15px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            cursor: pointer;
+            background: white;
+        }
+
+        .payment-option:hover {
+            background: #eef5ff;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #0073e6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="payment-container">
+        <h2>Choose Your Payment Method</h2>
+        <p><strong>Total to Pay:</strong> $<span id="payTotal"></span> CAD</p>
+
+        <div class="payment-option" onclick="selectPayment('PayPal')">
+            💳 Pay with PayPal
+        </div>
+        <div class="payment-option" onclick="selectPayment('Card')">
+            🏦 Pay with Credit/Debit Card
+        </div>
+        <div class="payment-option" onclick="selectPayment('Bank Transfer')">
+            📄 Bank Transfer
+        </div>
+
+        <button class="btn" onclick="confirmPayment()">Confirm Payment</button>
+    </div>
+
+    <script>
+        // Load total from localStorage
+        const total = localStorage.getItem("passPrice") * localStorage.getItem("tickets");
+        document.getElementById("payTotal").innerText = parseFloat(total).toLocaleString();
+
+        let selectedMethod = "";
+
+        function selectPayment(method) {
+            selectedMethod = method;
+            alert("You selected: " + method);
+        }
+
+        function confirmPayment() {
+            if (selectedMethod === "") {
+                alert("⚠️ Please select a payment method first!");
+            } else {
+                alert("✅ Redirecting to " + selectedMethod + " payment gateway...");
+                // Here we can redirect to actual gateway (PayPal/Stripe API)
+            }
+        }
+    </script>
+</body>
+
+</html>

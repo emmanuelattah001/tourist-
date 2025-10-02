@@ -31,7 +31,8 @@
 
         <div class="hero-inner">
             <div>
-                <h1>International Tourism Festival 2026 – Ticket Purchase Form</h1>
+                <div class="meta"> International Tourism Festival 2026 • Niagara Falls</div>
+                <h1> Ticket Purchase Form</h1>
             </div>
         </div>
     </header>
@@ -42,56 +43,86 @@
                     <h2>International Tourism Festival 2026 – Ticket Purchase Form </h2>
                 </div>
 
-                <form action="post">
-                    <!-- ticket purchase form -->
+                <form id="ticket-form" method="post">
+                    <!-- fullname -->
                     <label for="name">fullname <span>*</span></label>
-                    <input type="text" id="fullname" name="fullname" required>
+                    <input type="text" id="fullname" name="fullname">
 
+                    <!-- email -->
                     <label for="email">email <span>*</span></label>
-                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com">
 
+                    <!-- nationality -->
                     <label for="nationality">nationality <span>*</span></label>
-                    <input type="text" id="nationality" name="nationality" required>
+                    <input type="text" id="nationality" name="nationality">
 
-                    <label for="country">country or residence <span>*</span></label>
-                    <input type="text" id="country" name="country" required>
+                    <!-- country -->
+                    <label for="country">country of residence <span>*</span></label>
+                    <input type="text" id="country" name="country">
 
+                    <!-- address -->
                     <label for="address">address <span>*</span></label>
-                    <textarea name="address" id="address" cols="30" rows="2" required></textarea>
+                    <textarea name="address" id="address" cols="30" rows="2"></textarea>
 
+                    <!-- visa support -->
                     <label> do you need invitation/visa support letter?</label>
-                    <select name="visa-support" id="visa-support" required>
-                        <option value="" class="visa">--select--</option>
+                    <select name="visa-support" id="visa-support">
+                        <option value="">--select--</option>
                         <option value="yes">yes</option>
                         <option value="no">no</option>
                     </select>
 
-                    <label for="pass">Select Pass Type</label>
-                    <select name="pass" id="pass">
-                        <option value="">--select pass--</option>
-                        <option value="">One-Day Pass – $250 CAD</option>
-                        <option value="">Regular Pass (3 days, no accommodation) – $650 CAD</option>
-                        <option value="">International Regular Pass (3 days + accommodation + group tour) – $1500 CAD
+                    <!-- passport upload (hidden by default) -->
+                    <div id="passport-upload-container" style="display:none; margin-top:10px;">
+                        <label for="passport-upload">Upload International Passport <span>*</span></label>
+                        <input type="file" id="passport-upload" name="passport-upload" accept=".pdf, .jpg, .jpeg, .png">
+                        <small>Allowed formats: PDF, JPG, PNG | Max size: 5MB</small>
+                    </div>
+
+                    <!-- pass type -->
+                    <label for="pass-type">Select Pass Type</label>
+                    <select name="pass" id="pass-type">
+                        <option value="">-- Choose your pass --</option>
+                        <option value="One-Day Pass" data-price="250">One-Day Pass – $250 CAD</option>
+                        <option value="Regular Pass" data-price="650">Regular Pass – $650 CAD</option>
+                        <option value="International Regular" data-price="1500">International Regular – $1500 CAD
                         </option>
-                        <option value="">International Delegate Pass (3 days + accommodation + private tour + attraction
-                            passes) – $2500 CAD</option>
+                        <option value="International Delegate" data-price="2500">International Delegate – $2500 CAD
+                        </option>
                     </select>
 
+                    <!-- ticket count -->
                     <label for="ticket">number of ticket</label>
-                    <input type="number" name="ticket" id="ticket">
+                    <input type="number" name="ticket" id="ticket" min="1" value="1">
 
+                    <!-- checkout summary -->
+                    <!-- <div id="checkout-summary"
+                        style="margin-top:15px; padding:15px; background:#f4f4f4; border-radius:8px; display:none;">
+                        <h3>Checkout Summary</h3>
+                        <p><strong>Pass:</strong> <span id="summary-pass"></span></p>
+                        <p><strong>Quantity:</strong> <span id="summary-quantity"></span></p>
+                        <p><strong>Total:</strong> <span id="summary-total"></span> CAD</p>
+                    </div> -->
+
+                    <!-- special requests -->
                     <label for="request">special requests(optional)</label>
                     <textarea name="requests" id="requests" cols="30" rows="3"></textarea>
 
+                    <!-- notice -->
                     <div class="notice">
-                        <p><strong>⚠️ Important Notice:</strong>All fees paid for the International Tourism Festival
+                        <p><strong>⚠️ Important Notice:</strong> All fees paid for the International Tourism Festival
                             2026
-                            are non-refundable. Please review your selections carefully
-                            before submitting your payment.</p>
+                            are non-refundable. Please review your selections carefully before submitting your payment.
+                        </p>
                     </div>
 
-                    <input type="button" value="submit" class="btn">
+                    <!-- submit -->
+                    <!-- submit -->
+                    <input type="submit" value="Proceed to Checkout" class="btn">
+
                 </form>
+
+
             </div>
         </div>
     </main>
@@ -100,5 +131,6 @@
     <div id="footer"></div>
 </body>
 <script src="./assets/js/main.js"></script>
+<script src="./assets/js/form.js"></script>
 
 </html>

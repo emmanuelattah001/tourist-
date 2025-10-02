@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        .checkout-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .checkout-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .summary p {
+            margin: 5px 0;
+        }
+
+        .payment-methods {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #0077cc;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: #005fa3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="checkout-container">
+        <h2>Checkout Summary</h2>
+        <div class="summary">
+            <p><strong>Pass:</strong> <span id="checkout-pass"></span></p>
+            <p><strong>Quantity:</strong> <span id="checkout-qty"></span></p>
+            <p><strong>Total:</strong> $<span id="checkout-total"></span> CAD</p>
+        </div>
+
+        <div class="payment-methods">
+            <h3>Select Payment Method</h3>
+            <label><input type="radio" name="payment" value="card"> Credit/Debit Card</label><br>
+            <label><input type="radio" name="payment" value="paypal"> PayPal</label><br>
+            <label><input type="radio" name="payment" value="flutterwave"> Flutterwave</label><br>
+            <label><input type="radio" name="payment" value="bank"> Bank Transfer</label><br>
+        </div>
+
+        <button id="proceedBtn" class="btn">Proceed to Payment</button>
+    </div>
+
+    <script>
+        // Load summary from query string
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("checkout-pass").textContent = params.get("pass");
+        document.getElementById("checkout-qty").textContent = params.get("qty");
+        document.getElementById("checkout-total").textContent = params.get("total");
+
+        // Handle payment selection
+        document.getElementById("proceedBtn").addEventListener("click", () => {
+            const method = document.querySelector('input[name="payment"]:checked');
+            if (!method) {
+                alert("⚠️ Please select a payment method before proceeding.");
+                return;
+            }
+
+            const total = params.get("total");
+            switch (method.value) {
+                case "card":
+                    alert("Redirecting to Card Payment Gateway...\nAmount: $" + total + " CAD");
+                    // window.location.href = "card-payment.html";
+                    break;
+                case "paypal":
+                    alert("Redirecting to PayPal...\nAmount: $" + total + " CAD");
+                    // Example: window.location.href = "https://paypal.com/pay?amount=" + total;
+                    break;
+                case "flutterwave":
+                    alert("Redirecting to Flutterwave...\nAmount: $" + total + " CAD");
+                    // Example: window.location.href = "flutterwave.html";
+                    break;
+                case "bank":
+                    alert("Showing Bank Transfer Details...");
+                    // Example: window.location.href = "bank-details.html";
+                    break;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -37,26 +37,3 @@ fetch("footer.html")
   .then((data) => {
     document.getElementById("footer").innerHTML = data;
   });
-
-// Section toggle logic
-const nav_Links = document.querySelectorAll(".nav-link");
-const sections = document.querySelectorAll("main > section, #visa-support");
-
-nav_Links.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    const targetId = link.getAttribute("data-target");
-    if (targetId) {
-      e.preventDefault();
-
-      // Hide all sections
-      sections.forEach((sec) => sec.classList.add("hidden"));
-
-      // Show the selected one
-      const target = document.getElementById(targetId);
-      if (target) target.classList.remove("hidden");
-
-      // Scroll into view
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-});
